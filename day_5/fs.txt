@@ -1,0 +1,23 @@
+// fs is file system object
+
+var fs = require("fs);
+
+Creating Directory
+----------------------------------------------------------------
+fs.mkdirSync("/name of directry")
+
+Creating File
+----------------------------------------------------------------
+fs.writeFileSync("/name of directry/file name", "content of file",callback)
+
+Reading File
+----------------------------------------------------------------
+fs.readFileSync("path", "endcding scheme");
+
+Deleting File
+----------------------------------------------------------------
+fs.unlinkSync("path");
+
+Deleting Directory
+----------------------------------------------------------------
+fs.rmdirSync("name of directry.");
