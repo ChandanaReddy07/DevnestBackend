@@ -1,33 +1,27 @@
-const express = require('express');
-const bodyParser = require("body-parser");
+const express = require("express");
+const path = require("path");
 const app = express();
 
-const chckadmin=(req,res,next) => {
-    console.log("in first")
-    if(req.query.admin == true){
-        next();
-    }else{
-        res.status(400).send("should be admin")
-    }
+app.set("views", path.join(__dirname, "views"));
+ app.set("view engine", "jade"); 
 
+const landing = (req, res) => {
+    //  res.sendFile(path.join(__dirname, "public/test.json"));
+     res.render('index', {title: "Express"});
 }
+app.get("/", landing);
 
-//if want to use in all the url
-//app.use(chckadmin);
+// const setCookie = (req, res) => {
+//     res
+//     .status(200)
+//     .cookie("first", "audi", { expire: new Date(Date.now() + (1 * 3600000))})
+//     .cookie("second", "again")
+//     .redirect(301, "/")
+// }
 
-app.get("/" ,chckadmin , (req,res) => {
-	res.status(200);
-    res.json(req.query)
-} );
+// app.get("/cookie", setCookie);
 
-// app.use(bodyParser.urlencoded({ extented:true}));
-// app.use(bodyParser.json());
-//used for post requests
-app.use(express.urlencoded());
-app.use(express.json({ extented : true}));
 
-app.post("/", (req,res) => {
-	res.json( req.body);
-} )
-
-app.listen(5000);
+app.listen(5000, () => {
+    console.log("Connected to port 5000");
+});
