@@ -14,7 +14,7 @@ app.get("/", landing);
 // const setCookie = (req, res) => {
 //     res
 //     .status(200)
-//     .cookie("first", "audi", { expire: new Date(Date.now() + (1 * 3600000))})
+//     .cookie("first", "sonu", { expire: new Date(Date.now() + (1 * 3600000))})
 //     .cookie("second", "again")
 //     .redirect(301, "/")
 // }
